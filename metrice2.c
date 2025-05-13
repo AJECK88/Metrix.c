@@ -13,8 +13,8 @@ int  diterminantFunction(int metrix[3][3]){
   return dt;
 }
 /* || invers of a metrix function */
-int invers_metrixFunction(int metrix[3][3]) {
- 
+int invers_metrixFunction( int metrix[3][3]) {
+  float metrixs[3][3];
   // || the determinant of a metrix
   if( dt== 0){
     printf("\n................................\n");
@@ -23,36 +23,26 @@ int invers_metrixFunction(int metrix[3][3]) {
   else
   {
     printf("\n................................\n");
-    printf("invers:  \n");
+    printf("invers: ");
     for(  int i  = 0; i< 3; i++){
    for  (int j = 0; j < 3; j++){  
      
     int count =metrix[i][j];
-    for (int h =2; h <= count; h++){
-      if(dt%h == 0){
-          if(metrix[i][j]% h ==0){
-          int dtx = dt/h;
-          dt = dtx;
-          int metricex =metrix[j][i]/h;
-           metrix[j][i]= metricex;
           
-        }
-       
-       
-        
-      }
-     
-    }
+          float metricex = (float)metrix[j][i]/dt;
+           metrixs[j][i]= metricex;
+          
+
    
 
-printf(" %4d/%4d", metrix[j][i],dt); 
+printf(" %6.1f", metrixs[j][i]); 
   
  
   }  
   printf("\n");
-  printf(" "); 
+  printf("         "); 
 }  
-  
+
 }
 
 }
@@ -115,9 +105,9 @@ void TransposeFunction(int metrix[3][3]){
  }
  void main(){
     int metrix[3][3]= {
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}
+        {1,5,-2},
+        {3,-1,4},
+        {-3,6,-7}
     };
   diterminantFunction(metrix);
   printf(".................................\n");
